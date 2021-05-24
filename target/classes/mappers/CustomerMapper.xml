@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.test.mapper.CustomerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.test.entity.po.Customer">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="phone" property="phone" />
+        <result column="phone_area_code" property="phoneAreaCode" />
+        <result column="img" property="img" />
+        <result column="name_modify_limit" property="nameModifyLimit" />
+        <result column="status" property="status" />
+        <result column="auth_status" property="authStatus" />
+        <result column="login_way" property="loginWay" />
+        <result column="bind_third" property="bindThird" />
+        <result column="type" property="type" />
+        <result column="wy_accid" property="wyAccid" />
+        <result column="wy_token" property="wyToken" />
+        <result column="recommender_id" property="recommenderId" />
+        <result column="invitation_code" property="invitationCode" />
+        <result column="imei" property="imei" />
+        <result column="create_time" property="createTime" />
+        <result column="phone_bind_time" property="phoneBindTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="device_trace_id" property="deviceTraceId" />
+        <result column="is_accept_recommend" property="isAcceptRecommend" />
+        <result column="risk_level" property="riskLevel" />
+        <result column="sm_device_id" property="smDeviceId" />
+        <result column="app_version" property="appVersion" />
+        <result column="is_has_payed" property="isHasPayed" />
+        <result column="app_source" property="appSource" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, phone, phone_area_code, img, name_modify_limit, status, auth_status, login_way, bind_third, type, wy_accid, wy_token, recommender_id, invitation_code, imei, create_time, phone_bind_time, update_time, device_trace_id, is_accept_recommend, risk_level, sm_device_id, app_version, is_has_payed, app_source
+    </sql>
+
+</mapper>
