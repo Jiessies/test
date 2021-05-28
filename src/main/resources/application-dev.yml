@@ -7,7 +7,7 @@ spring:
   datasource:
     connectionTestQuery: "SELECT 1"
     connectionTimeout: "10000"
-    url: "jdbc:mysql://127.0.0.1:3306/jie?relaxAutoCommit=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf8&useSSL=false"
+    url: "jdbc:mysql://localhost:3306/jie?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true"
     minimumIdle: "15"
     driverClassName: "com.mysql.cj.jdbc.Driver"
     maximumPoolSize: "15"
@@ -48,14 +48,43 @@ management:
       exposure:
         include: '*'
 
-#feign:
-#  client:
-#    config:
-#      default:
-#        connectTimeout: 50000
-#        readTimeout: 5000
-#  recycl-rabbish-service:
-#    name: recycl-rabbish
+rocketmq:
+  accessKey: "a"
+  secretKey: "b"
+  nameSrvAddr: "c"
+  topic: workflow_testb
+  groupId: GID-test1
+  tag: mq_shop_settle_in_tag11
+  orderTopic: recycle_order
+  orderGroupId: GID-test
+  orderTag: recycle_order_001
+
+#### feign
+#hystrix的超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 9000
+
+#ribbon的超时时间
+ribbon:
+  ReadTimeout: 3000
+  ConnectTimeout: 3000
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+  recycl-rabbish-service:
+    name: recycl-rabbish
+## feign end
 
 merber:
   name: 订单服务中的配置名称

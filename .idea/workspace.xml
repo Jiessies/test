@@ -4,7 +4,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44503583-6032-44a0-afeb-03b7313e518b" name="Default Changelist" comment="" />
+    <list default="true" id="44503583-6032-44a0-afeb-03b7313e518b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_openservices_ons_client_1_8_4_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/configuration/mq/MqConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/configuration/mq/normal/ConsumerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/configuration/mq/normal/ProducerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/configuration/mq/order/OrderConsumerClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/configuration/mq/order/OrderProducerClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/configuration/mq/transaction/TransactionProducerClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/entity/MqContents.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/mq/MqService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/mq/listener/DemoLocalTransactionChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/mq/listener/OneMessageListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/mq/listener/OrderDemoMessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-dev.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-prod.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-test.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bootstrap-dev.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bootstrap-prod.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bootstrap-test.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/TestApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/aspect/LogRequestAspect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/configuration/MybatisPlusConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/controller/CustomerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/controller/TestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/entity/AnalysisLog$AnalysisLogBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/entity/AnalysisLog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/entity/ErrorCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/entity/PageRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/entity/RespPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/entity/ResponseObj.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/entity/ResultCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/entity/po/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/entity/req/CustomerReq.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/exception/BusinessException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/exception/GlobalExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/feignclient/CustomerClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/mapper/CustomerMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/test/service/CustomerService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mappers/CustomerMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,13 +63,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="PATH_TO_GIT" value="/usr/local/bin/git" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -29,7 +80,18 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$USER_HOME$/tool_work/maven/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="$USER_HOME$/tool_work/maven/settings-ttjb.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1snRITZ9X3Ahcu8BbuIMSJwk7Yb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -42,38 +104,41 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/example/test/mq" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/test/mq" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/test/configuration/mq" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/test" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/test/feignclient/domain" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.test.mq" />
+      <recent name="com.example.test.entity" />
       <recent name="com.example.test.controller" />
       <recent name="com.example.test.feignclient.domain" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -144,22 +209,24 @@
       <option name="presentableId" value="Default" />
       <updated>1621506289620</updated>
       <workItem from="1621506292128" duration="19042000" />
-      <workItem from="1621653316119" duration="9579000" />
+      <workItem from="1621653316119" duration="11348000" />
+      <workItem from="1622106662780" duration="14912000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/test/service/CustomerService.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

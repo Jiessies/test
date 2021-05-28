@@ -1,0 +1,43 @@
+package com.example.test.configuration.mq.order;
+
+import com.aliyun.openservices.ons.api.PropertyKeyConst;
+import com.aliyun.openservices.ons.api.bean.OrderConsumerBean;
+import com.aliyun.openservices.ons.api.bean.Subscription;
+import com.aliyun.openservices.ons.api.order.MessageOrderListener;
+import com.example.test.configuration.mq.MqConfig;
+import com.example.test.mq.listener.OrderDemoMessageListener;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+@Configuration
+public class OrderConsumerClient {
+    @Autowired
+    private MqConfig mqConfig;
+
+    @Autowired
+    private OrderDemoMessageListener messageListener;
+
+    @Bean(initMethod = "start", destroyMethod = "shutdown")
+    public OrderConsumerBean buildOrderConsumer() {
+        OrderConsumerBean orderConsumerBean = new OrderConsumerBean();
+        //配置文件
+        Properties properties = mqConfig.getMqPropertie();
+        properties.setProperty(PropertyKeyConst.GROUP_ID, mqConfig.getOrderGroupId());
+        orderConsumerBean.setProperties(properties);
+        //订阅关系
+        Map<Subscription, MessageOrderListener> subscriptionTable = new HashMap<Subscription, MessageOrderListener>();
+        Subscription subscription = new Subscription();
+        subscription.setTopic(mqConfig.getOrderTopic());
+        subscription.setExpression(mqConfig.getOrderTag());
+        subscriptionTable.put(subscription, messageListener);
+        //订阅多个topic如上面设置
+
+        orderConsumerBean.setSubscriptionTable(subscriptionTable);
+        return orderConsumerBean;
+    }
+}
