@@ -4,6 +4,17 @@ spring:
     password: "123456"
     port: 6379
     database: 0
+    timeout: 5000
+    lettuce:
+      pool:
+        max-active: 30
+        max-idle: 30
+        min-idle: 0
+    cache:
+      redis:
+        time-to-live: 3600000
+        cache-null-values: false
+
   datasource:
     connectionTestQuery: "SELECT 1"
     connectionTimeout: "10000"

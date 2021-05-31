@@ -37,5 +37,11 @@ public class CustomerController {
     public ResponseObj<RespPage<List<Customer>>> customerQuery(@Valid @RequestBody CustomerReq customerReq) {
         return customerService.customerQuery(customerReq);
     }
+
+    @ApiOperation("查询(vue)")
+    @PostMapping("/update")
+    public ResponseObj<Boolean> customerUpdate(@Valid @RequestBody CustomerReq customerReq) {
+        return customerService.customerUpdate(customerReq);
+    }
 }
 
