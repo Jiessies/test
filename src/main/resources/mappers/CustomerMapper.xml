@@ -37,4 +37,10 @@
         id, name, phone, phone_area_code, img, name_modify_limit, status, auth_status, login_way, bind_third, type, wy_accid, wy_token, recommender_id, invitation_code, imei, create_time, phone_bind_time, update_time, device_trace_id, is_accept_recommend, risk_level, sm_device_id, app_version, is_has_payed, app_source
     </sql>
 
+    <select id="selectAllList" resultType="com.example.test.entity.po.Customer">
+        select
+        <include refid="Base_Column_List"/>
+        from t_customer
+    </select>
+
 </mapper>

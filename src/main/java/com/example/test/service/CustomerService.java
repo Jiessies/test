@@ -32,6 +32,7 @@ public class CustomerService extends ServiceImpl<CustomerMapper, Customer> {
 
     @Cacheable(key = "'accountInfo:' + #customerReq.name", value = "customer", unless = "#result == null")
     public ResponseObj<RespPage<List<Customer>>> customerQuery(CustomerReq customerReq) {
+        List<Customer> customerList = customerMapper.selectAllList();
         Page page = new Page(customerReq.getPageIndex(), customerReq.getPageSize(), true);
         Customer customer = new Customer();
         customer.setName(customerReq.getName());
