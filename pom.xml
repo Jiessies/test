@@ -102,9 +102,8 @@
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.3.2</version>
-            <scope>test</scope>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+            <version>3.2.1</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -132,10 +131,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <dependency>
             <groupId>org.hibernate.validator</groupId>

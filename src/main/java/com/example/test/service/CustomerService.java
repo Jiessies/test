@@ -1,5 +1,6 @@
 package com.example.test.service;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -30,9 +31,9 @@ public class CustomerService extends ServiceImpl<CustomerMapper, Customer> {
     @Resource
     private CustomerMapper customerMapper;
 
+    @DS("ttjb")
     @Cacheable(key = "'accountInfo:' + #customerReq.name", value = "customer", unless = "#result == null")
     public ResponseObj<RespPage<List<Customer>>> customerQuery(CustomerReq customerReq) {
-        List<Customer> customerList = customerMapper.selectAllList();
         Page page = new Page(customerReq.getPageIndex(), customerReq.getPageSize(), true);
         Customer customer = new Customer();
         customer.setName(customerReq.getName());
@@ -48,5 +49,9 @@ public class CustomerService extends ServiceImpl<CustomerMapper, Customer> {
         customer.setId(customerReq.getId());
         customerMapper.updateById(customer);
         return ResponseObj.success(true);
+    }
+
+    public ResponseObj<?> queryList(List<String> ids) {
+        return null;
     }
 }

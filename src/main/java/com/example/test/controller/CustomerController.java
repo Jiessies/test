@@ -8,10 +8,8 @@ import com.example.test.service.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -42,6 +40,12 @@ public class CustomerController {
     @PostMapping("/update")
     public ResponseObj<Boolean> customerUpdate(@Valid @RequestBody CustomerReq customerReq) {
         return customerService.customerUpdate(customerReq);
+    }
+
+    @ApiOperation("查询(vue)")
+    @PostMapping(value = "/queryList", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseObj<?> queryList(@RequestParam("ids") List<String> ids) {
+        return customerService.queryList(ids);
     }
 }
 

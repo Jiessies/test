@@ -16,20 +16,26 @@ spring:
         cache-null-values: false
 
   datasource:
-    connectionTestQuery: "SELECT 1"
-    connectionTimeout: "10000"
-    url: "jdbc:mysql://localhost:3306/jie?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true"
-    minimumIdle: "15"
-    driverClassName: "com.mysql.cj.jdbc.Driver"
-    maximumPoolSize: "15"
-    password: "123456"
-    username: "root"
-    maxLifetime: "28770000"
-    hikari:
-      minimum-idle: "9"
-      maximum-pool-size: "80"
-      max-lifetime: "28000000"
-      connection-test-query: "SELECT 1"
+    dynamic:
+      hikari:
+        connection-timeout: 10000
+        connection-test-query: "SELECT 1"
+        min-idle: 15
+        max-pool-size: 15
+        max-lifetime: 28000000
+      primary: jie
+      strict: false
+      datasource:
+          jie:
+            username: "root"
+            password: "123456"
+            url: "jdbc:mysql://localhost:3306/jie?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true"
+            driver-class-name: "com.mysql.cj.jdbc.Driver"
+          ttjb:
+            username: "root"
+            password: "123456"
+            url: "jdbc:mysql://localhost:3306/jie?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true"
+            driver-class-name: "com.mysql.cj.jdbc.Driver"
 
 server:
   tomcat:
