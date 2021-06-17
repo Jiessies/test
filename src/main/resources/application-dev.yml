@@ -4,12 +4,13 @@ spring:
     password: "123456"
     port: 6379
     database: 0
-    timeout: 5000
+    timeout: 30000
     lettuce:
       pool:
-        max-active: 30
+        max-active: 50
         max-idle: 30
         min-idle: 0
+        max-wait: -1
     cache:
       redis:
         time-to-live: 3600000
@@ -32,9 +33,9 @@ spring:
             url: "jdbc:mysql://localhost:3306/jie?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true"
             driver-class-name: "com.mysql.cj.jdbc.Driver"
           ttjb:
-            username: "root"
-            password: "123456"
-            url: "jdbc:mysql://localhost:3306/jie?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true"
+            username: "ttjb"
+            password: "yjkj305!@#-db-test"
+            url: "jdbc:mysql://rm-2zeefmb98v6f5qeuf.mysql.rds.aliyuncs.com:3306/ttjb-testb?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true"
             driver-class-name: "com.mysql.cj.jdbc.Driver"
 
 server:

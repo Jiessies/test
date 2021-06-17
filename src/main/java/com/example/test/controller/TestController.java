@@ -8,16 +8,25 @@ import com.example.test.mq.MqService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
 @RequestMapping("/test")
 @RefreshScope
 public class TestController {
+
+    @Resource
+    private RedisTemplate redisTemplate;
+
     @Value("${merber.name:}")
     private String merberName;
 
@@ -50,6 +59,17 @@ public class TestController {
     @PostMapping("/sendOrderMq")
     public ResponseObj sendOrderMq(@RequestBody String message) {
         mqService.sendOrderMsg(UUID.randomUUID().toString(), mqConfig.getOrderTopic(), mqConfig.getOrderTag(), message, UUID.randomUUID().toString());
+        return ResponseObj.success();
+    }
+
+    @PostMapping("/redis/{key}")
+    public ResponseObj redisTest(@PathVariable("key") String key,
+                                 @RequestBody String msg) {
+//        redisTemplate.opsForList().leftPushAll(key,msg);
+//        redisTemplate.opsForList().leftPop(key,20, TimeUnit.SECONDS);
+        HashMap hashMap = new HashMap();
+        hashMap.put(key, msg);
+        redisTemplate.opsForHash().putAll(key + "_KEY", hashMap);
         return ResponseObj.success();
     }
 }
