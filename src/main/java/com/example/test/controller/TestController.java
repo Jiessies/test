@@ -72,4 +72,29 @@ public class TestController {
         redisTemplate.opsForHash().putAll(key + "_KEY", hashMap);
         return ResponseObj.success();
     }
+
+    @GetMapping("/find")
+    public ResponseObj test(@RequestParam("name") String name) {
+        return ResponseObj.success(name);
+    }
+
+    public static void main(String[] args) {
+//        ThreadLocal<String> threadLocal = new ThreadLocal<>();
+//        threadLocal.set("zhangsan");
+//        System.out.println(threadLocal.get());
+//        threadLocal.remove();
+
+
+        final ThreadLocal threadLocal = new InheritableThreadLocal();
+        threadLocal.set("帅得一匹");
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                System.out.println("张三帅么 =" + threadLocal.get());
+            }
+        };
+        t.start();
+    }
+
 }

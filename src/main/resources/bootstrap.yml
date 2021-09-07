@@ -6,16 +6,16 @@ spring:
   cloud:
     nacos:
       discovery:
-        enabled: true
+        enabled: false
         #必须配置ip地址
-        server-addr: localhost:8848
+        server-addr: 127.0.0.1:8848
         # 将自己的服务注册到注册中心
         register-enabled: true
         group: DEFAULT_GROUP
       # 配置中心新增部分
       config:
-        enabled: true
-        server-addr: localhost:8848
+        enabled: false
+        server-addr: 127.0.0.1:8848
         file-extension: yaml
         group: DEFAULT_GROUP
         namespace: ${spring.name.namespace}

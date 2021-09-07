@@ -32,17 +32,37 @@ spring:
             password: "123456"
             url: "jdbc:mysql://localhost:3306/jie?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true"
             driver-class-name: "com.mysql.cj.jdbc.Driver"
-          ttjb:
-            username: "ttjb"
-            password: "yjkj305!@#-db-test"
-            url: "jdbc:mysql://rm-2zeefmb98v6f5qeuf.mysql.rds.aliyuncs.com:3306/ttjb-testb?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true"
+          jie2:
+            username: "root"
+            password: "123456"
+            url: "jdbc:mysql://localhost:3306/jie2?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true"
             driver-class-name: "com.mysql.cj.jdbc.Driver"
 
 server:
-  tomcat:
-    max-threads: "1000"
-    uri-encoding: "UTF-8"
+  undertow:
+    io-threads: 4
+    worker-threads: 32
+    buffer-size: 1024
+    direct-buffers: true
+    accesslog:
+      enabled: true
+      prefix: ${spring.application.name}
+      suffix: ".log"
+      rotate: true
+      dir: "/Users/hualala/data/logs"
+
+#  tomcat:
+#    uri-encoding: "UTF-8"
+#    #最小线程数
+#    min-spare-threads: 300
+#    #最大线程数
+#    max-threads: 8000
+#    #最大链接数
+#    max-connections: 10000
+#    #最大等待队列长度
+#    accept-count: 1000
   port: "6010"
+#  connection-timeout: 20000
   error:
     whitelabel:
       enabled: "false"

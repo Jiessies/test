@@ -1,8 +1,10 @@
 package com.example.test.entity.po;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.example.test.entity.RespPage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -10,6 +12,8 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -103,4 +107,12 @@ public class Customer implements Serializable {
     private Integer appSource;
 
 
+    public static void main(String[] args) {
+        List list = new ArrayList<>();
+        final ArrayList arrayList = new ArrayList();
+        arrayList.add(new RespPage<>());
+        System.out.println(JSON.toJSONString(arrayList));
+
+
+    }
 }

@@ -3,7 +3,6 @@ package com.example.test.exception;
 import com.example.test.entity.ResponseObj;
 import com.example.test.entity.ResultCode;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.connector.ClientAbortException;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -26,7 +25,7 @@ public class GlobalExceptionHandler {
      * @return
      * @throws Exception
      */
-    @ResponseStatus(HttpStatus.OK)
+    /*@ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(value = ClientAbortException.class)
     public void defaultErrorHandler(HttpServletRequest request, ClientAbortException ex) throws Exception {
         if (AnnotationUtils.findAnnotation(ex.getClass(), ResponseStatus.class) != null) {
@@ -35,7 +34,7 @@ public class GlobalExceptionHandler {
         String requestURI = request.getRequestURI();
         log.warn("do [{}] on [{}] failed. exMsg:{}", request.getMethod(), requestURI,
                 ex.getLocalizedMessage());
-    }
+    }*/
 
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
