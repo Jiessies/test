@@ -7,4 +7,5 @@ import lombok.Data;
 public class CustomerReq extends PageRequest {
     private Long id;
     private String name;
+    private String phone;
 }

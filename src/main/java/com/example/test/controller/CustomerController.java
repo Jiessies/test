@@ -4,6 +4,7 @@ import com.example.test.entity.RespPage;
 import com.example.test.entity.ResponseObj;
 import com.example.test.entity.po.Customer;
 import com.example.test.entity.req.CustomerReq;
+import com.example.test.entity.req.DashboardCopyIndexReq;
 import com.example.test.service.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -47,5 +48,18 @@ public class CustomerController {
     public ResponseObj<?> queryList(@RequestParam("ids") List<String> ids) {
         return customerService.queryList(ids);
     }
+
+    @ApiOperation("查询(vue)")
+    @PostMapping("/addDb")
+    public ResponseObj<Boolean> addDb(@Valid @RequestBody DashboardCopyIndexReq request) {
+        return customerService.addDb(request);
+    }
+
+    @ApiOperation("查询(vue)")
+    @PostMapping("/addCustomer")
+    public ResponseObj<Boolean> addCustomer(@Valid @RequestBody CustomerReq request) {
+        return customerService.addCustomer(request);
+    }
+
 }
 
