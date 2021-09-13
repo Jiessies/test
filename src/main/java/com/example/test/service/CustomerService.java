@@ -3,6 +3,7 @@ package com.example.test.service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.baomidou.dynamic.datasource.annotation.DS;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -22,6 +23,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -96,11 +98,31 @@ public class CustomerService extends ServiceImpl<CustomerMapper, Customer> {
     }
 
     public User findUserById(String userId) {
-        return null;
+        User user = new User();
+        Customer customer = customerMapper.selectById(userId);
+        if (customer == null) {
+            return null;
+        }
+        user.setId(String.valueOf(customer.getId()));
+        user.setUsername(customer.getName());
+        user.setPassword(customer.getPhone());
+        return user;
     }
 
     public User findByUsername(User user) {
-        return null;
+        QueryWrapper<Customer> queryWrapper = new QueryWrapper<>();
+        Customer customer = new Customer();
+        customer.setName(user.getUsername());
+        queryWrapper.setEntity(customer);
+        List<Customer> customerList = customerMapper.selectList(queryWrapper);
+        if (CollectionUtils.isEmpty(customerList)) {
+            return null;
+        }
+        Customer customerResp = customerList.get(0);
+        user.setId(String.valueOf(customerResp.getId()));
+        user.setUsername(customerResp.getName());
+        user.setPassword(customerResp.getPhone());
+        return user;
     }
 
     public String getToken(User user) {
