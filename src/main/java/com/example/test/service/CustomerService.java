@@ -1,5 +1,7 @@
 package com.example.test.service;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -7,6 +9,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.test.entity.RespPage;
 import com.example.test.entity.ResponseObj;
+import com.example.test.entity.User;
 import com.example.test.entity.po.Customer;
 import com.example.test.entity.po.TblDashboardCopyIndex;
 import com.example.test.entity.req.CustomerReq;
@@ -90,5 +93,18 @@ public class CustomerService extends ServiceImpl<CustomerMapper, Customer> {
             throw new RuntimeException();
         }
         return ResponseObj.success(true);
+    }
+
+    public User findUserById(String userId) {
+        return null;
+    }
+
+    public User findByUsername(User user) {
+        return null;
+    }
+
+    public String getToken(User user) {
+        return JWT.create().withAudience(user.getId())
+                .sign(Algorithm.HMAC256(user.getPassword()));
     }
 }
