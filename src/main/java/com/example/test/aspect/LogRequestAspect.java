@@ -1,4 +1,3 @@
-/*
 package com.example.test.aspect;
 
 import com.alibaba.fastjson.JSON;
@@ -25,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class LogRequestAspect {
 
-    @Pointcut("execution(* com.example..controller..*(..))")
+    @Pointcut("execution(* com.example.test.controller..*(..))")
     public void verification() {
     }
 
@@ -106,4 +105,3 @@ public class LogRequestAspect {
     }
 
 }
-*/
