@@ -5,6 +5,7 @@ import com.example.test.entity.ResponseObj;
 import com.example.test.entity.req.CustomerReq;
 import com.example.test.feignclient.CustomerClient;
 import com.example.test.mq.MqService;
+import com.example.test.utils.BlowUpJVM;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -12,10 +13,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -78,6 +76,36 @@ public class TestController {
         return ResponseObj.success(name);
     }
 
+    @PostMapping("/oom")
+    public ResponseObj testOOM(@RequestParam("type") int type) {
+        String response = null;
+        switch (type) {
+            case 1:
+                //堆溢出
+                BlowUpJVM.testOutOfHeapMemory();
+                response = "1";
+                break;
+            case 2:
+                //栈溢出
+                BlowUpJVM.testStackOverFlow();
+                response = "2";
+                break;
+            case 3:
+                //永久代
+                BlowUpJVM.testPergemOutOfMemory2();
+                response = "3";
+                break;
+            case 4:
+                //本地方法
+                BlowUpJVM.testNativeMethodOutOfMemory();
+                response = "4";
+                break;
+
+        }
+        //-Xms64m -Xmx64m -XX:MetaspaceSize=32m -XX:MaxMetaspaceSize=64m -XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError
+        return ResponseObj.success(response);
+    }
+
     public static void main(String[] args) {
 //        ThreadLocal<String> threadLocal = new ThreadLocal<>();
 //        threadLocal.set("zhangsan");
@@ -85,16 +113,30 @@ public class TestController {
 //        threadLocal.remove();
 
 
-        final ThreadLocal threadLocal = new InheritableThreadLocal();
-        threadLocal.set("帅得一匹");
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                System.out.println("张三帅么 =" + threadLocal.get());
-            }
+//        final ThreadLocal threadLocal = new InheritableThreadLocal();
+//        threadLocal.set("帅得一匹");
+//        Thread t = new Thread() {
+//            @Override
+//            public void run() {
+//                super.run();
+//                System.out.println("张三帅么 =" + threadLocal.get());
+//            }
+//        };
+//        t.start();
+
+        new Thread(() -> {
+            System.out.println("asdfasdfasdfadsf");
+        }).start();
+        Runnable runnable = () -> {
+            System.out.println("112312312");
         };
-        t.start();
+        new Thread(runnable).start();
+        List<String> list = Arrays.asList("zhangsan", "lisi", "wangwu", "xiaoming", "zhaoliu");
+
+        list.stream()
+                .map(value -> value + "1") //传入的是一个Function函数式接口
+                .filter(value -> value.length() > 5) //传入的是一个Predicate函数式接口
+                .forEach(value -> System.out.println(value));//传入的是一个Consumer函数式接口
     }
 
 }
