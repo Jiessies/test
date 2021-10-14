@@ -1,6 +1,7 @@
 package com.example.test.utils;
 
 import com.alibaba.fastjson.JSON;
+import com.aliyun.openservices.shade.org.apache.commons.lang3.StringEscapeUtils;
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.BitMatrix;
@@ -253,6 +254,10 @@ public class QRCodeUtils {
             log.error("distBigscreen error ,request={} werwetwert" + e.getLocalizedMessage());
         }
 
+        String str = "[\\\"HPP果汁\\\",\\\"低值易耗品\\\",\\\"包装物\\\",\\\"固定资产\\\",\\\"奶制品\\\",\\\"水果\\\",\\\"纯净水\\\",\\\"肉类\\\",\\\"蔬菜\\\",\\\"辅料\\\",\\\"配餐\\\",\\\"面包\\\",\\\"饼干\\\"]";
+
+        String s2 = StringEscapeUtils.unescapeJava(str);
+        String a1 = s2.replace('\"','\'');
 
         Map<String, List<String>> map = new HashMap();
         map.put("getChartIdsByWtId", Arrays.asList("WtUpdateEventHandler onEvent", "/apis/data_source/external/data_source_id", "/apis/api/work_table", "/apis/meta/table", "/apis/api/work_table", "/apis/meta/table", "/apis/meta/table"));
