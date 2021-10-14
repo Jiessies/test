@@ -53,6 +53,7 @@ public class Student {
                 .collect(Collectors.toList());
         a.forEach(System.out::print);
 
+        System.out.println("--------------");
 
         List<String> b = Arrays.stream(awords)
                 .map(word -> word.split(""))
@@ -60,5 +61,8 @@ public class Student {
                 .distinct()
                 .collect(Collectors.toList());
         b.forEach(System.out::print);
+
+
+        System.out.println("--------------");
     }
 }
